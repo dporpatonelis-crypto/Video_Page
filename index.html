@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Βιβλιοθήκη της Αλεξάνδρειας - Φιλοσοφικά Μαθήματα</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Serif+Greek:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wood-dark: #3d2817;
+            --wood-medium: #5c3d2e;
+            --wood-light: #8b5a2b;
+            --marble-white: #f5f0e8;
+            --marble-cream: #e8dcc4;
+            --gold: #c9a227;
+            --gold-light: #e6c875;
+            --parchment: #f4e8d0;
+            --shadow: #1a1209;
+            --column: #d4c5b0;
+        }
+
+        body {
+            font-family: 'Noto Serif Greek', serif;
+            background: linear-gradient(135deg, var(--wood-dark) 0%, #2a1f15 50%, var(--wood-dark) 100%);
+            min-height: 100vh;
+            color: var(--marble-white);
+        }
+
+        .ancient-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .greek-font {
+            font-family: 'Noto Serif Greek', serif;
+        }
+
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Wood texture effect */
+        .wood-panel {
+            background: linear-gradient(90deg, var(--wood-medium) 0%, var(--wood-light) 50%, var(--wood-medium) 100%);
+            background-size: 100px 100%;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* Marble effect */
+        .marble-panel {
+            background: linear-gradient(135deg, rgba(245,240,232,0.1) 0%, rgba(232,220,196,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201,162,39,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Gold accents */
+        .gold-border {
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 10px rgba(201,162,39,0.3), inset 0 0 20px rgba(201,162,39,0.1);
+        }
+
+        .gold-text {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(201,162,39,0.5);
+        }
+
+        .gold-hover:hover {
+            color: var(--gold-light);
+            text-shadow: 0 0 15px rgba(230,200,117,0.8);
+        }
+
+        /* Video container with ancient frame */
+        .video-container {
+            position: relative;
+            background: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 4px var(--wood-medium),
+                0 0 0 6px var(--gold),
+                0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .video-frame {
+            position: relative;
+            background: var(--wood-dark);
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        /* Custom controls */
+        .custom-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,18,9,0.95), transparent);
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-container:hover .custom-controls {
+            opacity: 1;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(201,162,39,0.2);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(201,162,39,0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            border-radius: 3px;
+            width: 0%;
+            position: relative;
+            box-shadow: 0 0 10px rgba(201,162,39,0.5);
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border: 2px solid var(--marble-white);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+            box-shadow: 0 0 10px rgba(201,162,39,0.8);
+        }
+
+        .progress-bar:hover .progress-fill::after {
+            opacity: 1;
+        }
+
+        /* Quality badge */
+        .quality-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(26,18,9,0.8);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Playlist sidebar */
+        .playlist-sidebar {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .playlist-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .lesson-item {
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+            background: rgba(61,40,23,0.4);
+            margin-bottom: 8px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .lesson-item:hover {
+            background: rgba(92,61,46,0.6);
+            border-left-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .lesson-item.active {
+            background: linear-gradient(90deg, rgba(201,162,39,0.2), rgba(61,40,23,0.6));
+            border-left-color: var(--gold);
+            box-shadow: 0 0 15px rgba(201,162,39,0.2);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: linear-gradient(135deg, rgba(61,40,23,0.95), rgba(92,61,46,0.95));
+            backdrop-filter: blur(10px);
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+            color: var(--marble-white);
+            font-weight: 500;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            font-family: 'Cinzel', serif;
+        }
+
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Play button with ancient style */
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, rgba(201,162,39,0.9), rgba(139,90,43,0.9));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid var(--gold-light);
+            box-shadow: 0 0 30px rgba(201,162,39,0.6);
+        }
+
+        .play-button-overlay:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: radial-gradient(circle, rgba(230,200,117,0.95), rgba(201,162,39,0.95));
+            box-shadow: 0 0 50px rgba(230,200,117,0.8);
+        }
+
+        .play-button-overlay::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border: 2px solid rgba(201,162,39,0.3);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(201,162,39,0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Volume slider */
+        .volume-slider {
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s;
+            accent-color: var(--gold);
+        }
+
+        .volume-container:hover .volume-slider {
+            width: 100px;
+        }
+
+        /* Admin panel */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26,18,9,0.98);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .form-input {
+            background: rgba(61,40,23,0.8);
+            border: 1px solid var(--gold);
+            color: var(--marble-white);
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            margin-bottom: 16px;
+            font-family: 'Noto Serif Greek', serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold-light);
+            box-shadow: 0 0 10px rgba(201,162,39,0.3);
+        }
+
+        .json-output {
+            background: var(--shadow);
+            border: 1px solid var(--wood-medium);
+            border-radius: 6px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--marble-cream);
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* Decorative elements */
+        .column-decoration {
+            background: linear-gradient(90deg, transparent, rgba(212,197,176,0.1), transparent);
+            height: 100%;
+            width: 2px;
+        }
+
+        .ornament {
+            color: var(--gold);
+            opacity: 0.6;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--wood-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--wood-medium);
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--wood-light);
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--wood-light));
+            color: var(--shadow);
+            font-weight: 600;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201,162,39,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 10px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Cinzel', serif;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201,162,39,0.1);
+            box-shadow: 0 0 15px rgba(201,162,39,0.3);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-scroll mr-2 text-amber-400"></i>
+        <span id="notificationText">Έτοιμο για αναπαραγωγή</span>
+    </div>
+
+    <!-- Header -->
+    <header class="marble-panel sticky top-0 z-40 border-b border-amber-600/30">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-800 rounded-lg flex items-center justify-center shadow-lg border-2 border-amber-400">
+                    <i class="fas fa-landmark text-amber-100 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="ancient-font text-2xl font-bold text-amber-100 tracking-wider">ΒΙΒΛΙΟΘΗΚΗ ΤΗΣ ΑΛΕΞΑΝΔΡΕΙΑΣ</h1>
+                    <p class="text-xs text-amber-400/80 uppercase tracking-widest ancient-font">Φιλοσοφικά Μαθήματα</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleAdminPanel()" class="p-3 hover:bg-amber-900/30 rounded-full transition border border-amber-600/30" title="Προσθήκη Μαθήματος">
+                    <i class="fas fa-plus text-amber-400 text-lg"></i>
+                </button>
+                <button onclick="togglePlaylist()" class="p-3 hover:bg-amber-900/30 rounded-full transition border border-amber-600/30 lg:hidden">
+                    <i class="fas fa-list-ul text-amber-400 text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Video Info Section -->
+        <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div class="flex-1">
+                <div class="flex items-center space-x-3 mb-3">
+                    <span class="px-3 py-1 bg-amber-900/40 text-amber-300 text-xs rounded border border-amber-600/40 ancient-font">ΦΙΛΟΣΟΦΙΑ</span>
+                    <span class="px-3 py-1 bg-amber-900/40 text-amber-300 text-xs rounded border border-amber-600/40 ancient-font">ΘΡΗΣΚΕΙΑ</span>
+                    <span class="text-amber-200/60 text-sm ancient-font" id="courseMeta">ΜΑΘΗΜΑ 1 ΑΠΟ 1</span>
+                </div>
+                <h2 id="currentLessonTitle" class="text-3xl md:text-4xl font-bold text-amber-100 mb-3 greek-font leading-tight">Πλάτωνας και Ωριγένης - Φύση της ψυχής και αθανασία</h2>
+                <div class="flex items-center space-x-6 text-sm text-amber-200/70 mb-4 ancient-font">
+                    <span><i class="far fa-hourglass mr-2"></i><span id="currentDuration">1 ΛΕΠΤΟ</span></span>
+                    <span><i class="far fa-calendar-alt mr-2"></i><span id="currentDate">2024</span></span>
+                    <span><i class="fas fa-user-tie mr-2"></i>ΔΙΔΑΣΚΩΝ</span>
+                </div>
+                <p id="currentDescription" class="text-amber-100/70 max-w-3xl text-base leading-relaxed greek-font italic border-l-2 border-amber-600/50 pl-4">
+                    Η επίδραση της πλατωνικής σκέψης στην χριστιανική διδασκαλία του Ωριγένη.
+                </p>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="togglePlaylist()" class="btn-secondary flex items-center space-x-2">
+                    <i class="fas fa-list-ul"></i>
+                    <span>ΚΑΤΑΛΟΓΟΣ</span>
+                </button>
+                <button class="btn-primary flex items-center space-x-2">
+                    <i class="fas fa-download"></i>
+                    <span>ΣΗΜΕΙΩΣΕΙΣ</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Video Player Section -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- Player -->
+            <div class="flex-1">
+                <div class="video-frame">
+                    <div class="video-container aspect-video bg-black relative group" id="videoContainer">
+                        <!-- YouTube iframe (hidden by default) -->
+                        <div id="youtubePlayer" class="w-full h-full hidden"></div>
+                        
+                        <!-- Native video (fallback) -->
+                        <video id="mainVideo" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                        </video>
+                        
+                        <!-- Loading Spinner -->
+                        <div id="loadingSpinner" class="loading-spinner"></div>
+                        
+                        <!-- Play Overlay -->
+                        <div id="playOverlay" class="play-button-overlay" onclick="togglePlay()">
+                            <i class="fas fa-play text-amber-900 text-3xl ml-1"></i>
+                        </div>
+                        
+                        <!-- Quality Badge -->
+                        <div class="quality-badge" id="qualityBadge">HD</div>
+                        
+                        <!-- Custom Controls -->
+                        <div class="custom-controls">
+                            <div class="progress-bar mb-4" onclick="seek(event)">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button onclick="togglePlay()" class="text-amber-200 hover:text-amber-400 transition">
+                                        <i class="fas fa-play text-xl" id="playIcon"></i>
+                                    </button>
+                                    
+                                    <div class="flex items-center space-x-2 volume-container">
+                                        <button onclick="toggleMute()" class="text-amber-200 hover:text-amber-400 transition">
+                                            <i class="fas fa-volume-up" id="volumeIcon"></i>
+                                        </button>
+                                        <input type="range" min="0" max="100" value="100" class="volume-slider h-1 bg-amber-900 rounded-lg appearance-none cursor-pointer" oninput="setVolume(this.value)">
+                                    </div>
+                                    
+                                    <span class="text-sm text-amber-200/80 font-mono ancient-font">
+                                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                                    </span>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <button onclick="changeSpeed()" class="text-amber-200 hover:text-amber-400 transition text-sm font-bold ancient-font" id="speedBtn">
+                                        1x
+                                    </button>
+                                    <button onclick="toggleFullscreen()" class="text-amber-200 hover:text-amber-400 transition">
+                                        <i class="fas fa-expand text-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lesson Navigation -->
+                <div class="mt-6 flex justify-between items-center px-2">
+                    <button onclick="previousLesson()" class="flex items-center space-x-2 text-amber-300/60 hover:text-amber-300 transition disabled:opacity-30 ancient-font" id="prevBtn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                        <span>ΠΡΟΗΓΟΥΜΕΝΟ</span>
+                    </button>
+                    <div class="flex flex-col items-center">
+                        <div class="w-32 h-1 bg-amber-900/50 rounded-full overflow-hidden">
+                            <div class="h-full bg-amber-500 transition-all duration-300" id="progressBar" style="width: 0%"></div>
+                        </div>
+                        <span class="text-xs text-amber-400/60 mt-2 ancient-font" id="lessonCounter">ΜΑΘΗΜΑ 1 ΑΠΟ 1</span>
+                    </div>
+                    <button onclick="nextLesson()" class="flex items-center space-x-2 text-amber-300/60 hover:text-amber-300 transition disabled:opacity-30 ancient-font" id="nextBtn" disabled>
+                        <span>ΕΠΟΜΕΝΟ</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Playlist Sidebar -->
+            <div id="playlistSidebar" class="playlist-sidebar fixed right-0 top-0 h-full w-96 marble-panel z-50 overflow-y-auto border-l border-amber-600/30 lg:relative lg:transform-none lg:w-96 lg:block lg:rounded-xl lg:h-auto lg:max-h-[700px]">
+                <div class="p-6 border-b border-amber-600/30 flex items-center justify-between sticky top-0 bg-gradient-to-b from-[#2a1f15] to-transparent z-10">
+                    <h3 class="font-bold text-xl ancient-font text-amber-100">ΚΑΤΑΛΟΓΟΣ ΜΑΘΗΜΑΤΩΝ</h3>
+                    <button onclick="togglePlaylist()" class="lg:hidden text-amber-300 hover:text-amber-100">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-4 space-y-2" id="playlistContainer">
+                    <!-- Μαθήματα θα φορτωθούν εδώ -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="marble-panel p-6 rounded-xl border-t-4 border-amber-600">
+                <h3 class="font-bold mb-4 flex items-center space-x-3 ancient-font text-amber-200 text-lg">
+                    <i class="fas fa-scroll text-amber-500"></i>
+                    <span>ΠΕΡΙΛΗΨΗ</span>
+                </h3>
+                <p class="text-sm text-amber-100/70 leading-relaxed greek-font" id="summaryText">
+                    Σε αυτό το μάθημα εξετάζουμε την επίδραση της πλατωνικής φιλοσοφίας στην χριστιανική σκέψη, με εστίαση στις απόψεις του Ωριγένη για την αθανασία της ψυχής.
+                </p>
+            </div>
+            
+            <div class="marble-panel p-6 rounded-xl border-t-4 border-amber-600">
+                <h3 class="font-bold mb-4 flex items-center space-x-3 ancient-font text-amber-200 text-lg">
+                    <i class="fas fa-lightbulb text-amber-500"></i>
+                    <span>ΒΑΣΙΚΕΣ ΕΝΝΟΙΕΣ</span>
+                </h3>
+                <ul class="text-sm text-amber-100/70 space-y-3" id="conceptsList">
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-chevron-right text-amber-500 mt-1 text-xs"></i>
+                        <span class="greek-font">Πλατωνική ψυχή</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-chevron-right text-amber-500 mt-1 text-xs"></i>
+                        <span class="greek-font">Αθανασία</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-chevron-right text-amber-500 mt-1 text-xs"></i>
+                        <span class="greek-font">Χριστιανική θεολογία</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="marble-panel p-6 rounded-xl border-t-4 border-amber-600">
+                <h3 class="font-bold mb-4 flex items-center space-x-3 ancient-font text-amber-200 text-lg">
+                    <i class="fas fa-cog text-amber-500"></i>
+                    <span>ΡΥΘΜΙΣΕΙΣ</span>
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-amber-200/70 ancient-font">Αυτόματη αναπαραγωγή</span>
+                        <button onclick="toggleSetting(this)" class="w-12 h-6 bg-amber-700 rounded-full relative transition">
+                            <span class="absolute right-1 top-1 w-4 h-4 bg-amber-200 rounded-full transition"></span>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-amber-200/70 ancient-font">Υπότιτλοι</span>
+                        <select class="bg-amber-900/50 border border-amber-600/50 rounded px-3 py-1 text-sm text-amber-200 ancient-font">
+                            <option>Ελληνικά</option>
+                            <option>Αγγλικά</option>
+                            <option>Κλειστοί</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-amber-200/70 ancient-font">Ταχύτητα</span>
+                        <select id="speedSelect" onchange="manualSpeedChange(this.value)" class="bg-amber-900/50 border border-amber-600/50 rounded px-3 py-1 text-sm text-amber-200 ancient-font">
+                            <option value="0.5">0.5x</option>
+                            <option value="0.75">0.75x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.25">1.25x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Footer -->
+        <div class="mt-12 text-center pb-8">
+            <div class="flex items-center justify-center space-x-4 mb-4">
+                <div class="h-px w-16 bg-gradient-to-r from-transparent to-amber-600/50"></div>
+                <i class="fas fa-columns text-amber-600/50 text-2xl"></i>
+                <div class="h-px w-16 bg-gradient-to-l from-transparent to-amber-600/50"></div>
+            </div>
+            <p class="text-amber-400/40 text-sm ancient-font">ΜΟΥΣΕΙΟΝ ΚΑΙ ΣΧΟΛΗ ΤΗΣ ΑΛΕΞΑΝΔΡΕΙΑΣ</p>
+        </div>
+    </main>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="max-w-3xl mx-auto p-8">
+            <div class="flex items-center justify-between mb-8 border-b border-amber-600/30 pb-4">
+                <h2 class="text-3xl font-bold ancient-font text-amber-100">ΠΡΟΣΘΗΚΗ ΝΕΟΥ ΜΑΘΗΜΑΤΟΣ</h2>
+                <button onclick="toggleAdminPanel()" class="text-amber-400 hover:text-amber-200 transition">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="marble-panel p-8 rounded-xl mb-6">
+                <form id="addLessonForm" onsubmit="addNewLesson(event)">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2 ancient-font text-amber-300">ΑΡΙΘΜΟΣ ΜΑΘΗΜΑΤΟΣ</label>
+                            <input type="number" id="newId" class="form-input" required min="1" placeholder="π.χ. 2">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2 ancient-font text-amber-300">ΔΙΑΡΚΕΙΑ</label>
+                            <input type="text" id="newDuration" class="form-input" required placeholder="π.χ. 15 λεπτά">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold mb-2 ancient-font text-amber-300">ΤΙΤΛΟΣ ΜΑΘΗΜΑΤΟΣ</label>
+                        <input type="text" id="newTitle" class="form-input" required placeholder="π.χ. Αριστοτέλης - Ηθική Νικομάχεια">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold mb-2 ancient-font text-amber-300">ΠΕΡΙΓΡΑΦΗ</label>
+                        <textarea id="newDescription" class="form-input" rows="3" required placeholder="Σύντομη περιγραφή του μαθήματος..."></textarea>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold mb-2 ancient-font text-amber-300">YOUTUBE URL</label>
+                        <input type="url" id="newYoutubeUrl" class="form-input" placeholder="https://www.youtube.com/watch?v=... ή https://youtu.be/...">
+                        <p class="text-xs text-amber-400/60 mt-1 ancient-font">* Υποστηρίζονται κανονικά links και shortened URLs</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2 ancient-font text-amber-300">ΚΑΤΗΓΟΡΙΕΣ (χωρισμένες με κόμμα)</label>
+                        <input type="text" id="newCategories" class="form-input" placeholder="π.χ. Αρχαία Φιλοσοφία, Ηθική">
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button type="submit" class="btn-primary flex-1">
+                            <i class="fas fa-plus mr-2"></i>ΠΡΟΣΘΗΚΗ
+                        </button>
+                        <button type="button" onclick="generateJSON()" class="btn-secondary flex-1">
+                            <i class="fas fa-code mr-2"></i>ΕΞΑΓΩΓΗ JSON
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="marble-panel p-6 rounded-xl">
+                <h3 class="font-bold mb-3 ancient-font text-amber-300">ΤΡΕΧΟΝ JSON (για αποθήκευση)</h3>
+                <div id="jsonOutput" class="json-output">Πάτα "Εξαγωγή JSON" για να δεις τα δεδομένα...</div>
+                <p class="text-xs text-amber-400/60 mt-3 ancient-font">
+                    * Αντιγράψτε αυτό το JSON και αντικαταστήστε το lessonsData στον κώδικα
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // ΔΕΔΟΜΕΝΑ ΜΑΘΗΜΑΤΩΝ
+        // ==========================================
+        let lessonsData = [
+            {
+                id: 1,
+                title: "Πλάτωνας και Ωριγένης - Φύση της ψυχής και αθανασία",
+                duration: "1 λεπτό",
+                description: "Η επίδραση της πλατωνικής σκέψης στην χριστιανική διδασκαλία του Ωριγένη.",
+                youtubeId: "", // Άφησε κενό για placeholder
+                thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop",
+                categories: ["Φιλοσοφία", "Θρησκεία"],
+                date: "2024",
+                concepts: ["Πλατωνική ψυχή", "Αθανασία", "Χριστιανική θεολογία"],
+                summary: "Σε αυτό το μάθημα εξετάζουμε την επίδραση της πλατωνικής φιλοσοφίας στην χριστιανική σκέψη, με εστίαση στις απόψεις του Ωριγένη για την αθανασία της ψυχής."
+            }
+        ];
+
+        let currentLessonIndex = 0;
+        let isPlaying = false;
+        let playbackSpeed = 1;
+        let youtubePlayer = null;
+        let isYoutubePlaying = false;
+
+        const video = document.getElementById('mainVideo');
+        const playIcon = document.getElementById('playIcon');
+        const playOverlay = document.getElementById('playOverlay');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+
+        // YouTube API Loader
+        function loadYouTubeAPI() {
+            if (!window.YT) {
+                const tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                const firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
+        }
+
+        function onYouTubeIframeAPIReady() {
+            // Player will be initialized when needed
+        }
+
+        function initYoutubePlayer(videoId) {
+            if (youtubePlayer) {
+                youtubePlayer.destroy();
+            }
+            
+            youtubePlayer = new YT.Player('youtubePlayer', {
+                height: '100%',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'playsinline': 1,
+                    'controls': 0,
+                    'rel': 0,
+                    'modestbranding': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.setPlaybackRate(playbackSpeed);
+        }
+
+        function onPlayerStateChange(event) {
+            isYoutubePlaying = event.data === YT.PlayerState.PLAYING;
+            updatePlayButton();
+        }
+
+        // Extract YouTube ID from various URL formats
+        function extractYoutubeId(url) {
+            if (!url) return null;
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        // Φόρτωση playlist
+        function loadPlaylist() {
+            const container = document.getElementById('playlistContainer');
+            container.innerHTML = lessonsData.map((lesson, index) => `
+                <div class="lesson-item p-4 rounded-lg cursor-pointer flex items-start space-x-4 ${index === currentLessonIndex ? 'active' : ''}" 
+                     onclick="selectLesson(${index})">
+                    <div class="w-20 h-14 bg-amber-900/50 rounded flex items-center justify-center text-xs text-amber-400/50 flex-shrink-0 border border-amber-600/30 relative overflow-hidden">
+                        <img src="${lesson.thumbnail}" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas ${index === currentLessonIndex ? 'fa-volume-up' : 'fa-play'} ${index === currentLessonIndex ? 'text-amber-400' : 'text-amber-200/70'} relative z-10 text-lg"></i>
+                        </div>
+                        <div class="absolute bottom-1 right-1 text-[10px] bg-black/70 px-1 rounded text-amber-200 z-10">${lesson.duration}</div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs text-amber-500/80 ancient-font tracking-wider">ΜΑΘΗΜΑ ${lesson.id}</span>
+                        </div>
+                        <h4 class="text-sm font-medium text-amber-100/90 leading-snug greek-font line-clamp-2">${lesson.title}</h4>
+                    </div>
+                </div>
+            `).join('');
+            
+            updateNavigation();
+        }
+
+        function selectLesson(index) {
+            currentLessonIndex = index;
+            const lesson = lessonsData[index];
+            
+            // Ενημέρωση UI
+            document.getElementById('currentLessonTitle').textContent = lesson.title;
+            document.getElementById('currentDuration').textContent = lesson.duration.toUpperCase();
+            document.getElementById('currentDate').textContent = lesson.date || '2024';
+            document.getElementById('currentDescription').textContent = lesson.description;
+            document.getElementById('summaryText').textContent = lesson.summary || lesson.description;
+            document.getElementById('courseMeta').textContent = `ΜΑΘΗΜΑ ${index + 1} ΑΠΟ ${lessonsData.length}`;
+            
+            // Progress bar
+            const progress = ((index + 1) / lessonsData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Ενημέρωση εννοιών
+            const conceptsHtml = lesson.concepts ? lesson.concepts.map(c => `
+                <li class="flex items-start space-x-3">
+                    <i class="fas fa-chevron-right text-amber-500 mt-1 text-xs"></i>
+                    <span class="greek-font">${c}</span>
+                </li>
+            `).join('') : '';
+            document.getElementById('conceptsList').innerHTML = conceptsHtml || '<li class="text-amber-300/50 italic">Δεν υπάρχουν ετικέτες</li>';
+            
+            // Ενημέρωση video
+            const youtubeId = extractYoutubeId(lesson.youtubeId);
+            if (youtubeId) {
+                document.getElementById('mainVideo').classList.add('hidden');
+                document.getElementById('youtubePlayer').classList.remove('hidden');
+                document.querySelector('.custom-controls').style.display = 'none';
+                playOverlay.style.display = 'none';
+                if (window.YT && YT.Player) {
+                    initYoutubePlayer(youtubeId);
+                } else {
+                    loadYouTubeAPI();
+                    setTimeout(() => initYoutubePlayer(youtubeId), 1000);
+                }
+            } else {
+                document.getElementById('mainVideo').classList.remove('hidden');
+                document.getElementById('youtubePlayer').classList.add('hidden');
+                document.querySelector('.custom-controls').style.display = 'block';
+                playOverlay.style.display = 'flex';
+                video.src = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+                if (lesson.thumbnail) video.poster = lesson.thumbnail;
+            }
+            
+            // Reset player
+            if (!youtubeId) {
+                video.currentTime = 0;
+                progressFill.style.width = '0%';
+                if (isPlaying) {
+                    video.play();
+                } else {
+                    video.pause();
+                    playOverlay.style.opacity = '1';
+                    playOverlay.style.pointerEvents = 'auto';
+                }
+            }
+            
+            // Ενημέρωση playlist
+            loadPlaylist();
+            
+            // Notification
+            showNotification(`Φόρτωση: Μάθημα ${lesson.id}`);
+            
+            // Κλείσιμο sidebar σε mobile
+            if (window.innerWidth < 1024) {
+                document.getElementById('playlistSidebar').classList.remove('active');
+            }
+        }
+
+        function updateNavigation() {
+            document.getElementById('prevBtn').disabled = currentLessonIndex === 0;
+            document.getElementById('nextBtn').disabled = currentLessonIndex === lessonsData.length - 1;
+            document.getElementById('lessonCounter').textContent = `ΜΑΘΗΜΑ ${currentLessonIndex + 1} ΑΠΟ ${lessonsData.length}`;
+        }
+
+        function nextLesson() {
+            if (currentLessonIndex < lessonsData.length - 1) {
+                selectLesson(currentLessonIndex + 1);
+            }
+        }
+
+        function previousLesson() {
+            if (currentLessonIndex > 0) {
+                selectLesson(currentLessonIndex - 1);
+            }
+        }
+
+        function togglePlaylist() {
+            const sidebar = document.getElementById('playlistSidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function toggleAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            panel.classList.toggle('active');
+        }
+
+        // Video Controls
+        function togglePlay() {
+            const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+            
+            if (youtubeId && youtubePlayer) {
+                if (isYoutubePlaying) {
+                    youtubePlayer.pauseVideo();
+                } else {
+                    youtubePlayer.playVideo();
+                }
+            } else {
+                if (video.paused) {
+                    video.play();
+                    isPlaying = true;
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    playOverlay.style.opacity = '0';
+                    playOverlay.style.pointerEvents = 'none';
+                } else {
+                    video.pause();
+                    isPlaying = false;
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    playOverlay.style.opacity = '1';
+                    playOverlay.style.pointerEvents = 'auto';
+                }
+            }
+        }
+
+        function updatePlayButton() {
+            if (isYoutubePlaying) {
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        }
+
+        function toggleMute() {
+            const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+            
+            if (youtubeId && youtubePlayer) {
+                const isMuted = youtubePlayer.isMuted();
+                if (isMuted) {
+                    youtubePlayer.unMute();
+                } else {
+                    youtubePlayer.mute();
+                }
+            } else {
+                video.muted = !video.muted;
+            }
+            
+            const icon = document.getElementById('volumeIcon');
+            if ((youtubeId && youtubePlayer && youtubePlayer.isMuted()) || (!youtubeId && video.muted)) {
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+            } else {
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+            }
+        }
+
+        function setVolume(value) {
+            const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+            
+            if (youtubeId && youtubePlayer) {
+                youtubePlayer.setVolume(value);
+            } else {
+                video.volume = value / 100;
+            }
+        }
+
+        function seek(event) {
+            const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+            const rect = event.currentTarget.getBoundingClientRect();
+            const pos = (event.clientX - rect.left) / rect.width;
+            
+            if (youtubeId && youtubePlayer) {
+                const duration = youtubePlayer.getDuration();
+                youtubePlayer.seekTo(duration * pos, true);
+            } else {
+                video.currentTime = pos * video.duration;
+            }
+        }
+
+        function toggleFullscreen() {
+            const container = document.getElementById('videoContainer');
+            if (!document.fullscreenElement) {
+                container.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function changeSpeed() {
+            const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+            const currentIndex = speeds.indexOf(playbackSpeed);
+            playbackSpeed = speeds[(currentIndex + 1) % speeds.length];
+            
+            const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+            if (youtubeId && youtubePlayer) {
+                youtubePlayer.setPlaybackRate(playbackSpeed);
+            } else {
+                video.playbackRate = playbackSpeed;
+            }
+            
+            document.getElementById('speedBtn').textContent = playbackSpeed + 'x';
+            document.getElementById('speedSelect').value = playbackSpeed;
+            showNotification(`Ταχύτητα: ${playbackSpeed}x`);
+        }
+
+        function manualSpeedChange(speed) {
+            playbackSpeed = parseFloat(speed);
+            const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+            
+            if (youtubeId && youtubePlayer) {
+                youtubePlayer.setPlaybackRate(playbackSpeed);
+            } else {
+                video.playbackRate = playbackSpeed;
+            }
+            
+            document.getElementById('speedBtn').textContent = playbackSpeed + 'x';
+        }
+
+        function showNotification(text) {
+            const notif = document.getElementById('notification');
+            document.getElementById('notificationText').textContent = text;
+            notif.classList.add('show');
+            setTimeout(() => {
+                notif.classList.remove('show');
+            }, 3000);
+        }
+
+        function toggleSetting(btn) {
+            const isActive = btn.classList.contains('bg-amber-700');
+            const dot = btn.querySelector('span');
+            if (isActive) {
+                btn.classList.remove('bg-amber-700');
+                btn.classList.add('bg-amber-900');
+                dot.style.right = 'auto';
+                dot.style.left = '4px';
+                dot.classList.remove('bg-amber-200');
+                dot.classList.add('bg-amber-600');
+            } else {
+                btn.classList.remove('bg-amber-900');
+                btn.classList.add('bg-amber-700');
+                dot.style.left = 'auto';
+                dot.style.right = '4px';
+                dot.classList.remove('bg-amber-600');
+                dot.classList.add('bg-amber-200');
+            }
+        }
+
+        // Admin Functions
+        function addNewLesson(event) {
+            event.preventDefault();
+            
+            const youtubeUrl = document.getElementById('newYoutubeUrl').value;
+            const youtubeId = extractYoutubeId(youtubeUrl);
+            
+            const newLesson = {
+                id: parseInt(document.getElementById('newId').value),
+                title: document.getElementById('newTitle').value,
+                duration: document.getElementById('newDuration').value,
+                description: document.getElementById('newDescription').value,
+                youtubeId: youtubeUrl,
+                thumbnail: youtubeId ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop",
+                categories: document.getElementById('newCategories').value.split(',').map(c => c.trim()).filter(c => c),
+                date: new Date().getFullYear().toString(),
+                concepts: [],
+                summary: document.getElementById('newDescription').value
+            };
+            
+            lessonsData.push(newLesson);
+            lessonsData.sort((a, b) => a.id - b.id);
+            
+            loadPlaylist();
+            showNotification(`Προστέθηκε: ${newLesson.title}`);
+            
+            document.getElementById('addLessonForm').reset();
+            generateJSON();
+        }
+
+        function generateJSON() {
+            const jsonStr = JSON.stringify(lessonsData, null, 2);
+            document.getElementById('jsonOutput').textContent = jsonStr;
+        }
+
+        // Video Event Listeners (για native video)
+        video.addEventListener('timeupdate', () => {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressFill.style.width = progress + '%';
+            currentTimeEl.textContent = formatTime(video.currentTime);
+        });
+
+        video.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(video.duration);
+        });
+
+        video.addEventListener('waiting', () => {
+            document.getElementById('loadingSpinner').style.display = 'block';
+        });
+
+        video.addEventListener('playing', () => {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        });
+
+        video.addEventListener('ended', () => {
+            if (currentLessonIndex < lessonsData.length - 1) {
+                setTimeout(() => nextLesson(), 2000);
+            }
+        });
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT') {
+                e.preventDefault();
+                togglePlay();
+            } else if (e.code === 'ArrowRight') {
+                const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+                if (youtubeId && youtubePlayer) {
+                    const current = youtubePlayer.getCurrentTime();
+                    youtubePlayer.seekTo(current + 10, true);
+                } else {
+                    video.currentTime += 10;
+                }
+            } else if (e.code === 'ArrowLeft') {
+                const youtubeId = extractYoutubeId(lessonsData[currentLessonIndex].youtubeId);
+                if (youtubeId && youtubePlayer) {
+                    const current = youtubePlayer.getCurrentTime();
+                    youtubePlayer.seekTo(current - 10, true);
+                } else {
+                    video.currentTime -= 10;
+                }
+            } else if (e.code === 'KeyF') {
+                toggleFullscreen();
+            }
+        });
+
+        // Initialize
+        loadYouTubeAPI();
+        loadPlaylist();
+        selectLesson(0);
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
