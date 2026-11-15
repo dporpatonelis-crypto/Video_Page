@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Τρεις προβολές, τέσσερις μικρές προτάσεις. Παρακολουθώ, συμπληρώνω και ταξινομώ.">
+  <title>Συμεών ο Νέος Θεολόγος · Παρακολουθώ — Συμπληρώνω — Ταξινομώ</title>
+  <style>:root{color-scheme:dark;--bg:#102b30;--panel:#17383d;--panel-dark:#123037;--ink:#f5ebd4;--muted:#b4c8c2;--gold:#e8c88a;--line:#e4c68b38;--focus:#ffe4a8;--radius:15px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 6% 0%,#23464a 0,transparent 55%),var(--bg);color:var(--ink);font:16px/1.5 Arial,Helvetica,sans-serif;min-width:320px}button,select{font:inherit}button,a,select{-webkit-tap-highlight-color:transparent}button,select{touch-action:manipulation}button{cursor:pointer;color:inherit;border:1px solid var(--line);background:transparent;border-radius:8px;min-height:44px;padding:9px 14px}button:disabled{cursor:default}button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}button:hover:not(:disabled){border-color:var(--gold);background:#e8c88a0c}a{color:var(--muted);text-underline-offset:4px}[hidden]{display:none!important}h1,h2,h3,p{margin:0}h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400}#app{width:min(1580px,100%);padding:25px 34px 16px;margin:0 auto}.eyebrow{font-size:10px;line-height:1.45;letter-spacing:.14em;color:var(--gold)}.masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:22px;border-bottom:1px solid var(--line)}.identity{display:flex;align-items:center;gap:16px}.identity-mark{width:51px;flex:0 0 51px;stroke:var(--gold);fill:none;stroke-width:.8}.identity-mark path{fill:var(--gold);stroke:none}.identity h1{font-size:36px;line-height:1.2;margin:3px 0 4px;letter-spacing:-.02em}.method{color:var(--muted);font-size:12px}.method span{padding:0 4px;color:#b59f71}.header-tools{display:flex;gap:8px;align-self:flex-start;padding-top:8px}.quiet-button{font-size:12px;border-color:var(--line);color:var(--muted);white-space:nowrap}.screenings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:19px 0 24px}.screenings>button{display:flex;align-items:center;gap:13px;text-align:left;border-radius:10px;padding:12px 16px;background:#122e3499;min-height:72px}.screenings>button[aria-pressed=true]{background:#e8c88a12;border-color:#e8c88a9c;box-shadow:inset 0 -2px var(--gold)}.step-number{font:29px/1 Georgia,serif;color:#90aba7}.screenings button[aria-pressed=true] .step-number{color:var(--gold)}.screenings small{display:block;font-size:10px;color:var(--muted);margin-bottom:1px}.screenings strong{display:block;font:21px/1.3 Georgia,serif}.step-detail{margin-left:auto;font-size:10px;color:var(--muted);max-width:90px}.workspace{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);gap:26px;align-items:start}.film-panel,.activity-panel{min-width:0}.film-panel{position:sticky;top:18px}.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:58px;padding-bottom:13px}.panel-heading h2{font-size:25px;line-height:1.25;margin-top:3px}.duration{font:24px Georgia,serif;color:var(--gold);border:1px solid var(--line);border-radius:30px;padding:3px 13px}.film-frame{background:#091d22;border:1px solid #b6a16a80;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;box-shadow:0 16px 36px #06191e3d}.film-frame video{display:block;width:100%;height:100%;object-fit:contain;background:#081b20}.playback{display:flex;align-items:center;gap:15px;margin-top:16px}.primary-button{background:var(--gold);color:#17363a;border-color:var(--gold);font-weight:600}.primary-button:hover:not(:disabled){background:#f9dca4;color:#142c31}.playback .primary-button{display:flex;align-items:center;justify-content:center;gap:10px;min-height:49px;padding:11px 16px;white-space:nowrap;font-size:14px}.primary-button svg{width:15px;height:15px;fill:currentColor}.playback>p{font-size:11px;line-height:1.5;color:var(--muted)}.viewing-note{display:flex;align-items:flex-start;gap:11px;margin-top:20px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.note-symbol{font-size:28px;line-height:1;color:var(--gold)}.viewing-note p{font:17px/1.5 Georgia,serif;max-width:510px}.video-sources{display:flex;flex-wrap:wrap;align-items:center;gap:4px 17px;margin-top:8px}.text-button{font-size:11px;min-height:44px;padding:6px 0;border:none;border-radius:3px;color:var(--gold);text-decoration:underline;text-underline-offset:4px}.text-button:hover:not(:disabled){background:transparent}.video-sources a{font-size:10px}.source-status{color:#8faeaa;font-size:10px;overflow-wrap:anywhere}.media-message{margin-top:11px;padding:12px;border:1px solid #e1b57b80;border-radius:8px;background:#8c582022;display:flex;align-items:center;gap:12px}.media-message p{font-size:12px;line-height:1.5}.media-message button{flex-shrink:0;font-size:11px}.activity-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 21px 13px;box-shadow:0 15px 35px #06191e1c}.activity-panel .panel-heading{min-height:0;padding-bottom:0}.activity-panel h2{font-size:25px}.completion-count{font:24px/1.1 Georgia,serif;color:var(--gold);white-space:nowrap;text-align:right}.completion-count small{display:block;font:9px/1.5 Arial,sans-serif;color:var(--muted);margin-top:4px}.activity-instruction{font-size:12px;color:var(--muted);margin:11px 0 14px;min-height:18px}.sentence-list{list-style:none;padding:0;margin:0;display:grid;gap:9px}.sentence-row{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:start;padding:12px 11px;background:var(--panel-dark);border:1px solid #a2bdb322;border-radius:9px;transition:border-color .15s}.sentence-row:focus-within{border-color:#e8c88a8c}.sentence-row.has-rank{grid-template-columns:23px minmax(0,1fr) 57px}.sentence-label{width:25px;height:25px;display:grid;place-items:center;border:1px solid #cdb47a55;border-radius:50%;font:13px/1 Georgia,serif;color:var(--gold);margin-top:4px}.sentence-text{font:21px/1.65 Georgia,'Times New Roman',serif;overflow-wrap:anywhere}.verb-slot{display:inline-block;vertical-align:baseline;min-height:37px;min-width:125px;max-width:100%;padding:0 10px;margin:0 3px;border:1px dashed #cdb47a80;border-radius:5px;color:var(--gold);background:#dec58d08;line-height:1.5;font:inherit;overflow-wrap:anywhere}.verb-slot:disabled{opacity:1;color:#c8bc9b;cursor:default}.verb-slot.filled{color:#19373a;background:#ead19e;border:1px solid #ead19e}.verb-slot.filled::after{content:' ↶';font:12px Arial,sans-serif;opacity:.65}.verb-slot.filled:disabled::after{content:''}.verb-slot.filled:hover:not(:disabled){background:#f4dfb3;color:#17363a}.rank-control{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;color:var(--muted);margin-top:0}.rank-control select{width:55px;min-height:44px;border-radius:7px;border:1px solid #e8c88a66;background:#1e4548;color:var(--ink);font-size:18px;padding:5px 4px;cursor:pointer}.verb-bank-region{border-top:1px solid var(--line);margin-top:16px;padding-top:12px}.bank-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}.bank-heading h3{font-size:12px;font-weight:400;color:var(--gold)}.bank-heading>span{font-size:10px;color:var(--muted);text-align:right}.verb-bank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.verb-bank button{padding:8px 9px;min-height:44px;background:#28484a;color:#f4e1b9;border:1px solid #cdb47a80;font:19px/1.3 Georgia,serif}.verb-bank button[aria-pressed=true]{background:var(--gold);color:#17363a;border-color:#ffe6af;box-shadow:0 0 0 2px #e8c88a33}.verb-bank button:disabled{opacity:.38;border-style:dashed;background:transparent}.bank-note{font-size:10px;line-height:1.6;color:#a9c0b8;margin-top:8px}.activity-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px}.check-button{font-size:12px;border-color:#e8c88a77;color:#f2dcae;min-height:44px;padding:9px 13px;background:#e8c88a0b}.activity-actions>span{font-size:11px;color:var(--muted)}.feedback{font-size:11px;line-height:1.55;color:#e5d09b;margin-top:9px;min-height:17px;overflow-wrap:anywhere}.result-panel{margin-top:27px;padding:25px 30px;border:1px solid #e8c88a8c;border-radius:var(--radius);background:linear-gradient(120deg,#284a46,#193b40)}.result-heading{display:flex;justify-content:space-between;gap:20px;align-items:center}.result-heading h2{font-size:30px;margin-top:4px}.final-summary{margin:20px 0 18px;font:25px/1.85 Georgia,serif;text-wrap:pretty;overflow-wrap:anywhere}.result-note{font-size:12px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line)}footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:12px;margin-top:27px;font-size:10px;color:#9fb7b0}footer>span:first-child{color:#cfba8a}dialog{color:var(--ink);background:var(--panel);border:1px solid var(--gold);border-radius:var(--radius);padding:27px;max-width:min(450px,calc(100% - 32px))}dialog::backdrop{background:#06191dd9}dialog h2{font-size:30px;margin:4px 0 10px}dialog p:not(.eyebrow){font-size:14px;color:var(--muted)}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:25px}.dialog-actions button{font-size:13px}noscript{display:block;padding:20px}html:fullscreen #app{max-width:1580px}
+.verb-bank[data-count="5"],.verb-bank[data-count="6"]{display:flex;flex-wrap:wrap;justify-content:center}.verb-bank[data-count="5"] button,.verb-bank[data-count="6"] button{flex:0 1 max(140px,calc(33.333% - 5px))}
+@media(min-width:1350px){.verb-bank{grid-template-columns:repeat(4,minmax(0,1fr))}.verb-bank button{font-size:18px}.activity-panel{padding:21px 23px 13px}}
+@media(max-width:1200px){#app{padding:20px 24px 14px}.workspace{gap:19px;grid-template-columns:minmax(0,.97fr) minmax(0,1.03fr)}.step-detail{display:none}.identity h1{font-size:32px}.activity-panel{padding:17px 15px 11px}.activity-panel h2,.panel-heading h2{font-size:23px}.sentence-text{font-size:19px}.sentence-row{padding:10px 9px;gap:8px}.verb-slot{min-width:112px;min-height:35px;padding:0 7px}.playback{align-items:flex-start;flex-direction:column;gap:8px}.playback>p{min-height:16px}.viewing-note{margin-top:14px}.viewing-note p{font-size:16px}}
+@media(min-width:800px) and (max-width:1100px){#app{padding:15px 19px 12px}.masthead{padding-bottom:16px}.identity-mark{width:42px;flex-basis:42px}.identity{gap:12px}.identity h1{font-size:30px}.screenings{margin:14px 0 18px;gap:8px}.screenings>button{padding:10px 12px;min-height:64px}.screenings strong{font-size:20px}.activity-panel h2,.panel-heading h2{font-size:21px}.activity-instruction{margin:8px 0 11px;font-size:11px}.sentence-row{padding:9px 7px;gap:7px}.sentence-text{font-size:18px;line-height:1.6}.verb-slot{min-width:105px;margin:0 2px;min-height:32px}.verb-bank-region{margin-top:12px;padding-top:10px}.verb-bank button{font-size:18px}.bank-note{font-size:9px}.activity-actions{margin-top:10px}.feedback{font-size:10px}.viewing-note p{font-size:15px}footer{margin-top:20px}}
+@media(max-width:799px){#app{padding:17px 16px 14px}.masthead{gap:12px;align-items:flex-start;padding-bottom:16px}.identity{gap:9px;align-items:flex-start}.identity-mark{width:35px;flex-basis:35px;margin-top:13px}.identity h1{font-size:28px}.eyebrow{font-size:8px}.method{font-size:10px;line-height:1.7}.header-tools{padding-top:0;gap:5px;flex-direction:column}.header-tools button{font-size:16px;min-width:44px;padding:6px}.header-tools button span{display:none}.screenings{gap:6px;margin:15px 0 20px}.screenings>button{padding:10px 8px;justify-content:center;gap:7px;min-height:68px}.step-number{font-size:22px}.screenings strong{font-size:16px}.screenings small{font-size:8px}.workspace{grid-template-columns:minmax(0,1fr);gap:23px}.film-panel{position:static}.panel-heading{min-height:50px}.playback{flex-direction:row;align-items:center;gap:13px}.playback .primary-button{font-size:12px;padding:10px 12px;min-height:46px}.playback>p{font-size:10px}.viewing-note{margin-top:14px;padding:12px 0}.viewing-note p{font-size:16px}.activity-panel{padding:19px 16px 12px}.sentence-text{font-size:20px}.sentence-row{padding:11px 9px}.verb-slot{min-height:37px}.activity-instruction{font-size:12px}.verb-bank button{font-size:19px}.result-panel{padding:20px 19px}.result-heading{flex-direction:column;align-items:flex-start;gap:11px}.result-heading h2{font-size:26px}.final-summary{font-size:21px;line-height:1.8}footer{flex-direction:column;gap:4px;font-size:9px}.duration{font-size:21px}}
+@media(max-width:380px){#app{padding:14px 11px}.identity-mark{display:none}.identity h1{font-size:26px}.screenings>button{gap:5px;padding:9px 5px}.screenings strong{font-size:15px}.step-number{font-size:19px}.activity-panel{padding:17px 11px 11px}.sentence-text{font-size:18px}.sentence-row.has-rank{grid-template-columns:20px minmax(0,1fr) 51px}.rank-control select{width:49px}}
+@media(max-width:600px){.screenings>button{flex-direction:column;gap:2px;padding:10px 4px}.step-number{display:none}.screenings strong{font-size:clamp(12px,3.5vw,17px)}.screenings small{font-size:9px}}
+@media(pointer:coarse){.verb-slot{min-height:44px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div id="app">
+    <header class="masthead">
+      <div class="identity">
+        <svg class="identity-mark" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23"/><circle cx="26" cy="26" r="17"/><path d="M22 16 35 26 22 36Z"/></svg>
+        <div><p class="eyebrow" id="lesson-subtitle">Μια μικρή βιογραφική διαδρομή</p><h1 id="lesson-title">Συμεών ο Νέος Θεολόγος</h1><p class="method">Παρακολουθώ <span>—</span> Συμπληρώνω <span>—</span> Ταξινομώ</p></div>
+      </div>
+      <div class="header-tools"><button id="fullscreen" class="quiet-button" type="button" aria-label="Πλήρης οθόνη">⛶ <span>Πλήρης οθόνη</span></button><button id="reset" class="quiet-button" type="button" aria-label="Νέα προσπάθεια">↺ <span>Νέα προσπάθεια</span></button></div>
+    </header>
+
+    <nav class="screenings" aria-label="Επιλογή προβολής">
+      <button type="button" data-phase="1" aria-pressed="true"><span class="step-number">01</span><span><small>1η προβολή</small><strong>Παρακολουθώ</strong></span><span class="step-detail">Το πρόσωπο και η εποχή</span></button>
+      <button type="button" data-phase="2" aria-pressed="false"><span class="step-number">02</span><span><small>2η προβολή</small><strong>Συμπληρώνω</strong></span><span class="step-detail">Τέσσερα ρήματα</span></button>
+      <button type="button" data-phase="3" aria-pressed="false"><span class="step-number">03</span><span><small>3η προβολή</small><strong>Ταξινομώ</strong></span><span class="step-detail">Η σειρά των γεγονότων</span></button>
+    </nav>
+
+    <main>
+      <div class="workspace">
+        <section class="film-panel" aria-labelledby="film-title">
+          <div class="panel-heading"><div><p class="eyebrow">Ο ΒΙΟΣ ΣΕ ΕΙΚΟΝΕΣ</p><h2 id="film-title">Παρατηρούμε τη διαδρομή</h2></div><span class="duration" id="duration">45″</span></div>
+          <div class="film-frame"><video id="lesson-video" controls playsinline preload="metadata" poster="https://dporpatonelis-crypto.github.io/interactive-books/Digital_Lessons/assets/church-fathers-journeys/symeon/01-elder.png" aria-label="Βίντεο του μαθήματος"></video></div>
+          <div class="playback"><button type="button" id="start-screening" class="primary-button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 3 11 7-11 7Z"/></svg><span id="start-label">Έναρξη 1ης προβολής</span></button><p id="playback-status" role="status">Το βίντεο περιμένει το δικό σου πάτημα.</p></div>
+          <div class="viewing-note"><span class="note-symbol" aria-hidden="true">✧</span><p id="viewing-instruction">Παρατήρησε το πρόσωπο και την εποχή. Διάβασε τις τέσσερις προτάσεις με τα κενά.</p></div>
+          <div class="video-sources"><button id="choose-local" type="button" class="text-button">Επιλογή τοπικού βίντεο</button><button id="use-online" type="button" class="text-button" hidden>Χρήση συνδέσμου</button><a id="video-source-link" target="_blank" rel="noopener noreferrer">Βίντεο του ψηφιακού βιβλίου ↗</a></div>
+          <input id="local-video-file" type="file" accept="video/*,.mp4,.webm,.m4v,.mov" hidden>
+          <p id="source-status" class="source-status">Πηγή: ψηφιακό βιβλίο</p>
+          <div id="media-message" class="media-message" role="status" hidden><p id="media-message-text"></p><button id="retry-video" type="button">Δοκιμή ξανά</button></div>
+        </section>
+
+        <section class="activity-panel" aria-labelledby="activity-title">
+          <div class="panel-heading"><div><p class="eyebrow" id="activity-kicker">ΠΡΙΝ ΑΠΟ ΤΗ ΣΥΜΠΛΗΡΩΣΗ</p><h2 id="activity-title">Τέσσερις μικρές προτάσεις</h2></div><span id="completion-count" class="completion-count">0/4 <small>συμπληρωμένες</small></span></div>
+          <p id="activity-instruction" class="activity-instruction">Διάβασε τις προτάσεις καθώς παρακολουθείς.</p>
+          <ol id="sentence-list" class="sentence-list" aria-label="Οι τέσσερις προτάσεις"></ol>
+
+          <section id="verb-bank-region" class="verb-bank-region" aria-labelledby="bank-title" hidden>
+            <div class="bank-heading"><h3 id="bank-title">Τράπεζα ρημάτων</h3><span id="bank-instruction">Ρήμα → κενό</span></div>
+            <div id="verb-bank" class="verb-bank" role="group" aria-label="Διάλεξε ένα ρήμα"></div>
+            <p class="bank-note">Για αλλαγή, διάλεξε άλλο ρήμα ή πάτησε το συμπληρωμένο για να το επιστρέψεις.</p>
+          </section>
+
+          <div class="activity-actions" id="activity-actions" hidden><button type="button" id="check-completion" class="check-button">Έλεγχος συμπλήρωσης</button><span id="rank-count" hidden>0/4 θέσεις</span></div>
+          <p id="feedback" class="feedback" role="status" aria-atomic="true"></p>
+        </section>
+      </div>
+
+      <section id="result-panel" class="result-panel" aria-labelledby="result-title" hidden>
+        <div class="result-heading"><div><p class="eyebrow">Η ΔΙΚΗ ΜΑΣ ΑΦΗΓΗΣΗ</p><h2 id="result-title" tabindex="-1">Η μικρή μας περίληψη</h2></div><button type="button" id="back-to-sentences" class="quiet-button">Επιστροφή στις προτάσεις ↑</button></div>
+        <p id="final-summary" class="final-summary"></p><p class="result-note">Διαβάζουμε την περίληψη και συζητάμε τις επιλογές μας στην τάξη.</p>
+      </section>
+    </main>
+
+    <footer><span>Τρεις προβολές. Μια μικρή αφήγηση.</span><span id="storage-note">Οι απαντήσεις αποθηκεύονται σε αυτή τη συσκευή.</span></footer>
+  </div>
+
+  <dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-description"><form method="dialog"><p class="eyebrow">ΝΕΑ ΠΡΟΣΠΑΘΕΙΑ</p><h2 id="reset-title">Ξεκινάμε πάλι;</h2><p id="reset-description">Θα αδειάσουν οι προτάσεις και οι θέσεις αυτού του μαθήματος.</p><div class="dialog-actions"><button value="cancel" autofocus>Επιστροφή</button><button value="reset" class="primary-button">Νέα προσπάθεια</button></div></form></dialog>
+  <noscript>Χρειάζεται ενεργή JavaScript για τη συμπλήρωση και την ταξινόμηση των προτάσεων.</noscript>
+  <script id="lesson-data" type="application/json">{"id":"symeon","revision":1,"title":"Συμεών ο Νέος Θεολόγος","subtitle":"Μια μικρή βιογραφική διαδρομή","videoUrl":"https://dporpatonelis-crypto.github.io/interactive-books/Digital_Lessons/assets/church-fathers-journeys/symeon/symeon.mp4","videoDuration":45,"sentences":[{"id":"saint-mamas","subject":"Ο ηγούμενος στη Μονή Αγίου Μάμαντος","ending":"τα κτίρια και την κοινοτική ζωή."},{"id":"elder","subject":"Ο Συμεών ο Ευλαβής","ending":"τα πρώτα πνευματικά βήματα του νεαρού Συμεών."},{"id":"hymns","subject":"Η προσευχή και η θεία αγάπη","ending":"ποιητικά στους «Ύμνους Θείων Ερώτων»."},{"id":"first-light","subject":"Ο νεαρός Συμεών","ending":"το θείο φως στη νυχτερινή προσευχή."}],"verbs":[{"id":"restores","text":"αποκαθιστά","voice":"active"},{"id":"guides","text":"καθοδηγεί","voice":"active"},{"id":"expressed","text":"εκφράζονται","voice":"passive"},{"id":"experiences","text":"βιώνει","voice":"active"}],"source":{"bookId":"Digital_Lessons","bookRevision":33,"sourceRevision":17,"sectionId":"father-symeon","videoMediaId":"VID-039","posterMediaId":"IMG-116","videoSha256":"a8957f05e0afcc3a9ed423d89c64324c0b71b579c7a522ef268ba064bd2ffa46","posterSha256":"7c6e6f31dda6e70cef10ef1fdcec0bb9445c0b23ca9fa2e3ff96a289eb353a39","selectedScenes":[1,2,4,7],"sceneManifest":"https://github.com/dporpatonelis-crypto/interactive-books/blob/main/Digital_Lessons/sources/church-fathers-journeys.json"}}</script>
+  <script>(function (root) {
+  'use strict';
+  const VERSION = 1;
+
+  function bankOrder(lesson, random) {
+    const ids = lesson.verbs.map(function (v) { return v.id; });
+    for (let i = ids.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      const value = ids[i]; ids[i] = ids[j]; ids[j] = value;
+    }
+    // Keep even the first visible bank different from the authoring order.
+    if (ids.every(function (id, i) { return id === lesson.verbs[i].id; })) ids.push(ids.shift());
+    return ids;
+  }
+
+  function create(lesson, saved, random) {
+    const state = {
+      version: VERSION, lessonId: lesson.id, revision: lesson.revision,
+      phase: 1, bank: [], answers: {}, ranks: {}
+    };
+    const valid = saved && typeof saved === 'object' && !Array.isArray(saved) &&
+      saved.version === VERSION && saved.lessonId === lesson.id && saved.revision === lesson.revision;
+    const verbIds = new Set(lesson.verbs.map(function (v) { return v.id; }));
+    if (valid && Array.isArray(saved.bank) && saved.bank.length === verbIds.size &&
+      new Set(saved.bank).size === verbIds.size && saved.bank.every(function (id) { return verbIds.has(id); })) {
+      state.bank = saved.bank.slice();
+    } else state.bank = bankOrder(lesson, random || Math.random);
+    if (!valid) return state;
+    if ([1, 2, 3].includes(saved.phase)) state.phase = saved.phase;
+    const usedVerbs = new Set(), usedRanks = new Set();
+    for (const sentence of lesson.sentences) {
+      const verb = saved.answers && saved.answers[sentence.id];
+      const rank = saved.ranks && saved.ranks[sentence.id];
+      if (verbIds.has(verb) && !usedVerbs.has(verb)) {
+        state.answers[sentence.id] = verb; usedVerbs.add(verb);
+      }
+      if (Number.isInteger(rank) && rank >= 1 && rank <= lesson.sentences.length && !usedRanks.has(rank)) {
+        state.ranks[sentence.id] = rank; usedRanks.add(rank);
+      }
+    }
+    return state;
+  }
+
+  function hasSentence(lesson, id) {
+    return lesson.sentences.some(function (s) { return s.id === id; });
+  }
+
+  function assignVerb(state, lesson, sentenceId, verbId) {
+    if (!hasSentence(lesson, sentenceId)) return false;
+    if (verbId === null) { delete state.answers[sentenceId]; return true; }
+    if (!lesson.verbs.some(function (v) { return v.id === verbId; })) return false;
+    if (Object.keys(state.answers).some(function (id) { return id !== sentenceId && state.answers[id] === verbId; })) return false;
+    state.answers[sentenceId] = verbId;
+    return true;
+  }
+
+  function assignRank(state, lesson, sentenceId, rank) {
+    if (!hasSentence(lesson, sentenceId)) return false;
+    if (rank === null) { delete state.ranks[sentenceId]; return true; }
+    if (!Number.isInteger(rank) || rank < 1 || rank > lesson.sentences.length) return false;
+    const previous = state.ranks[sentenceId];
+    const occupied = Object.keys(state.ranks).find(function (id) { return id !== sentenceId && state.ranks[id] === rank; });
+    if (occupied) {
+      if (previous) state.ranks[occupied] = previous;
+      else delete state.ranks[occupied];
+    }
+    state.ranks[sentenceId] = rank;
+    return true;
+  }
+
+  function progress(state, lesson) {
+    const words = lesson.sentences.filter(function (s) { return Boolean(state.answers[s.id]); }).length;
+    const ranks = lesson.sentences.filter(function (s) { return Boolean(state.ranks[s.id]); }).length;
+    return { words: words, ranks: ranks, complete: words === lesson.sentences.length && ranks === lesson.sentences.length };
+  }
+
+  function sentenceText(state, lesson, id) {
+    const sentence = lesson.sentences.find(function (s) { return s.id === id; });
+    const verb = lesson.verbs.find(function (v) { return v.id === state.answers[id]; });
+    return sentence.subject + ' ' + (verb ? verb.text : '…') + ' ' + sentence.ending;
+  }
+
+  function orderedSentences(state, lesson) {
+    if (!progress(state, lesson).complete) return [];
+    return lesson.sentences.slice().sort(function (a, b) { return state.ranks[a.id] - state.ranks[b.id]; })
+      .map(function (s) { return { id: s.id, text: sentenceText(state, lesson, s.id) }; });
+  }
+
+  const api = { VERSION: VERSION, create: create, assignVerb: assignVerb, assignRank: assignRank,
+    progress: progress, sentenceText: sentenceText, orderedSentences: orderedSentences };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.WatchFillOrderCore = api;
+})(typeof window === 'undefined' ? globalThis : window);
+
+(function () {
+  'use strict';
+  const $ = function (id) { return document.getElementById(id); };
+  const D = JSON.parse($('lesson-data').textContent);
+  const C = window.WatchFillOrderCore;
+  const storageKey = 'watch-fill-order.v1:' + D.id;
+  const video = $('lesson-video');
+  const rows = new Map(), bankButtons = new Map();
+  const letters = ['Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ'];
+  const count = D.sentences.length;
+  const countWord = { 3: 'τρεις', 4: 'τέσσερις', 5: 'πέντε', 6: 'έξι' }[count];
+  const phases = {
+    1: { kicker: 'ΠΡΙΝ ΑΠΟ ΤΗ ΣΥΜΠΛΗΡΩΣΗ', instruction: 'Διάβασε τις προτάσεις καθώς παρακολουθείς.',
+      viewing: 'Παρατήρησε το πρόσωπο και την εποχή. Διάβασε τις ' + countWord + ' προτάσεις με τα κενά.' },
+    2: { kicker: 'ΦΑΣΗ 1 · ΣΥΜΠΛΗΡΩΣΗ', instruction: 'Διάλεξε ρήμα από την τράπεζα και πάτησε ένα κενό.',
+      viewing: 'Παρακολούθησε ξανά και συμπλήρωσε τις ' + countWord + ' προτάσεις. Μπορείς να απαντάς και μετά το βίντεο.' },
+    3: { kicker: 'ΦΑΣΗ 2 · ΣΕΙΡΑ ΓΕΓΟΝΟΤΩΝ', instruction: 'Δώσε θέση 1–' + count + ', σύμφωνα με τη σειρά εμφάνισης στο βίντεο.',
+      viewing: 'Αρίθμησε τις προτάσεις με βάση την εμφάνιση των γεγονότων. Τα ρήματα μπορούν ακόμη να αλλάξουν.' }
+  };
+  let canStore = true, saved = null, selectedVerb = null, state;
+  let localObjectUrl = null, sourceMode = 'online', sourceUrl = D.videoUrl;
+  let playGeneration = 0, started = false, sourceFailed = false;
+  try {
+    const raw = localStorage.getItem(storageKey);
+    if (raw) { try { saved = JSON.parse(raw); } catch (_) { saved = null; } }
+  } catch (_) { canStore = false; }
+  state = C.create(D, saved);
+
+  function say(message) { $('feedback').textContent = message; }
+  function persist() {
+    if (canStore) {
+      try { localStorage.setItem(storageKey, JSON.stringify(state)); }
+      catch (_) { canStore = false; }
+    }
+    $('storage-note').textContent = canStore ? 'Οι απαντήσεις αποθηκεύονται σε αυτή τη συσκευή.' :
+      'Οι απαντήσεις κρατιούνται όσο μένει ανοιχτή αυτή η σελίδα.';
+  }
+
+  function make(tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined) element.textContent = text;
+    return element;
+  }
+
+  function buildRows() {
+    D.sentences.forEach(function (sentence, index) {
+      const li = make('li', 'sentence-row'); li.dataset.sentence = sentence.id;
+      const label = make('span', 'sentence-label', letters[index]); label.setAttribute('aria-hidden', 'true');
+      const text = make('p', 'sentence-text');
+      const slot = make('button', 'verb-slot', 'Ρήμα…'); slot.type = 'button'; slot.dataset.slot = sentence.id;
+      slot.addEventListener('click', function (event) { fillSentence(sentence.id, event.detail === 0); });
+      text.append(make('span', '', sentence.subject), document.createTextNode(' '), slot,
+        document.createTextNode(' '), make('span', '', sentence.ending));
+      const rankControl = make('label', 'rank-control');
+      rankControl.append(make('span', '', 'Θέση'));
+      const rank = make('select'); rank.dataset.rank = sentence.id;
+      rank.setAttribute('aria-label', 'Θέση της πρότασης ' + letters[index] + ' στη σειρά των γεγονότων');
+      for (let n = 0; n <= D.sentences.length; n++) {
+        const option = make('option', '', n ? String(n) : '—'); option.value = n ? String(n) : ''; rank.append(option);
+      }
+      rank.addEventListener('change', function () {
+        if (state.phase !== 3) return;
+        const value = rank.value ? Number(rank.value) : null;
+        const occupied = Object.keys(state.ranks).find(function (id) { return id !== sentence.id && state.ranks[id] === value; });
+        C.assignRank(state, D, sentence.id, value); persist(); render();
+        say(value ? 'Η πρόταση ' + letters[index] + ' μπήκε στη θέση ' + value + '.' +
+          (occupied ? ' Οι θέσεις των δύο προτάσεων άλλαξαν.' : '') : 'Η θέση της πρότασης ' + letters[index] + ' αφαιρέθηκε.');
+      });
+      rankControl.append(rank); li.append(label, text, rankControl); $('sentence-list').append(li);
+      rows.set(sentence.id, { li: li, slot: slot, rank: rank, rankControl: rankControl, index: index });
+    });
+  }
+
+  function buildBank() {
+    $('verb-bank').replaceChildren(); bankButtons.clear();
+    $('verb-bank').dataset.count = String(count);
+    state.bank.forEach(function (id) {
+      const verb = D.verbs.find(function (v) { return v.id === id; });
+      const button = make('button', '', verb.text); button.type = 'button'; button.dataset.verb = id;
+      button.addEventListener('click', function (event) {
+        if (state.phase < 2 || button.disabled) return;
+        selectedVerb = selectedVerb === id ? null : id;
+        render();
+        say(selectedVerb ? 'Επιλέχθηκε το «' + verb.text + '». Πάτησε την πρόταση που θέλεις να συμπληρώσεις.' : 'Η επιλογή ρήματος ακυρώθηκε.');
+        if (event.detail === 0 && selectedVerb) {
+          const target = D.sentences.find(function (s) { return !state.answers[s.id]; }) || D.sentences[0];
+          rows.get(target.id).slot.focus({ preventScroll: true });
+        }
+      });
+      bankButtons.set(id, button); $('verb-bank').append(button);
+    });
+  }
+
+  function fillSentence(id, keyboard) {
+    if (state.phase < 2) return;
+    const old = state.answers[id];
+    if (selectedVerb) {
+      const verb = D.verbs.find(function (v) { return v.id === selectedVerb; });
+      if (!C.assignVerb(state, D, id, selectedVerb)) return;
+      selectedVerb = null; persist(); render();
+      say('Τοποθετήθηκε το «' + verb.text + '». ' + C.progress(state, D).words + '/' + count + ' συμπληρωμένες.');
+      if (keyboard) focusAvailableVerb();
+    } else if (old) {
+      C.assignVerb(state, D, id, null); persist(); render();
+      say('Το ρήμα επέστρεψε στην τράπεζα. Διάλεξε αυτό που θέλεις να τοποθετήσεις.');
+      if (keyboard) bankButtons.get(old).focus({ preventScroll: true });
+    } else {
+      say('Διάλεξε πρώτα ένα ρήμα από την τράπεζα και μετά πάτησε το κενό.'); focusAvailableVerb();
+    }
+  }
+
+  function focusAvailableVerb() {
+    const available = Array.from(bankButtons.values()).find(function (button) { return !button.disabled; });
+    if (available) available.focus({ preventScroll: true });
+  }
+
+  function render() {
+    const phase = phases[state.phase], progress = C.progress(state, D);
+    document.body.dataset.phase = String(state.phase);
+    document.querySelectorAll('[data-phase]').forEach(function (button) {
+      button.setAttribute('aria-pressed', String(Number(button.dataset.phase) === state.phase));
+    });
+    $('activity-kicker').textContent = phase.kicker;
+    $('activity-instruction').textContent = phase.instruction;
+    $('viewing-instruction').textContent = phase.viewing;
+    $('completion-count').replaceChildren(document.createTextNode(progress.words + '/' + count + ' '), make('small', '', 'συμπληρωμένες'));
+    $('verb-bank-region').hidden = state.phase === 1;
+    $('activity-actions').hidden = state.phase === 1;
+    $('rank-count').hidden = state.phase !== 3;
+    $('rank-count').textContent = progress.ranks + '/' + count + ' θέσεις';
+    $('bank-instruction').textContent = selectedVerb ? 'Πάτησε ένα κενό' : 'Ρήμα → κενό';
+    D.sentences.forEach(function (sentence) {
+      const row = rows.get(sentence.id), chosen = D.verbs.find(function (v) { return v.id === state.answers[sentence.id]; });
+      row.li.classList.toggle('has-rank', state.phase === 3);
+      row.slot.textContent = chosen ? chosen.text : 'Ρήμα…';
+      row.slot.disabled = state.phase === 1;
+      row.slot.classList.toggle('filled', Boolean(chosen));
+      row.slot.setAttribute('aria-label', 'Πρόταση ' + letters[row.index] + ': ' + sentence.subject + ' ' +
+        (chosen ? chosen.text : 'κενό ρήμα') + ' ' + sentence.ending +
+        (state.phase === 1 ? '' : selectedVerb ? ' Πάτησε για να τοποθετήσεις το επιλεγμένο ρήμα.' :
+          chosen ? ' Πάτησε για επιστροφή του ρήματος στην τράπεζα.' : ' Διάλεξε ρήμα από την τράπεζα.'));
+      row.rankControl.hidden = state.phase !== 3; row.rank.disabled = state.phase !== 3;
+      row.rank.value = state.ranks[sentence.id] ? String(state.ranks[sentence.id]) : '';
+    });
+    const used = new Set(Object.values(state.answers));
+    bankButtons.forEach(function (button, id) {
+      button.disabled = used.has(id);
+      button.setAttribute('aria-pressed', String(selectedVerb === id));
+      button.setAttribute('aria-label', button.textContent + (used.has(id) ? ' · έχει τοποθετηθεί' : ''));
+    });
+    const complete = state.phase === 3 && progress.complete;
+    $('result-panel').hidden = !complete;
+    $('final-summary').replaceChildren();
+    if (complete) C.orderedSentences(state, D).forEach(function (sentence, index) {
+      if (index) $('final-summary').append(document.createTextNode(' '));
+      const span = make('span', '', sentence.text); span.dataset.resultSentence = sentence.id; $('final-summary').append(span);
+    });
+    $('check-completion').textContent = complete ? 'Δες την περίληψη ↓' : 'Έλεγχος συμπλήρωσης';
+    updateStartLabel();
+  }
+
+  function updateStartLabel() {
+    $('start-label').textContent = (started ? 'Επανάληψη ' : 'Έναρξη ') + state.phase + 'ης προβολής';
+  }
+
+  function rewind() {
+    playGeneration++; video.pause();
+    try { video.currentTime = 0; } catch (_) { /* Metadata may not be available yet. */ }
+    started = false; updateStartLabel();
+  }
+
+  function selectPhase(phase) {
+    if (phase === state.phase) return;
+    rewind(); state.phase = phase; selectedVerb = null;
+    $('playback-status').textContent = 'Η ' + phase + 'η προβολή περιμένει το δικό σου πάτημα.';
+    persist(); render(); say('');
+  }
+
+  function mediaMessage(text) {
+    $('media-message-text').textContent = text; $('media-message').hidden = !text;
+  }
+
+  function mediaError() {
+    if (!video.error || video.currentSrc !== sourceUrl) return;
+    sourceFailed = true;
+    mediaMessage(sourceMode === 'local' ? 'Το τοπικό αρχείο δεν άνοιξε. Επίλεξε ένα συμβατό βίντεο, όπως MP4.' :
+      'Ο σύνδεσμος δεν φόρτωσε. Δοκίμασε ξανά ή επίλεξε το τοπικό βίντεο από τη συσκευή.');
+    $('playback-status').textContent = 'Οι προτάσεις παραμένουν διαθέσιμες.';
+  }
+
+  function setSource(url, mode, filename) {
+    rewind(); sourceUrl = url; sourceMode = mode; sourceFailed = false;
+    video.src = url; video.load();
+    $('use-online').hidden = mode === 'online';
+    $('source-status').textContent = mode === 'local' ? 'Τοπικό: ' + filename + ' · Μετά από επαναφόρτωση επίλεξέ το ξανά.' : 'Πηγή: ψηφιακό βιβλίο';
+    $('playback-status').textContent = 'Το βίντεο περιμένει το δικό σου πάτημα.';
+    mediaMessage('');
+  }
+
+  function playFromStart() {
+    rewind();
+    if (sourceFailed) { sourceFailed = false; video.load(); }
+    const generation = playGeneration;
+    mediaMessage(''); $('playback-status').textContent = 'Το βίντεο ετοιμάζεται…';
+    const promise = video.play();
+    if (promise) promise.catch(function (error) {
+      if (generation !== playGeneration || error.name === 'AbortError') return;
+      if (error.name === 'NotAllowedError') {
+        mediaMessage('Πάτησε το κουμπί αναπαραγωγής επάνω στο βίντεο για να ξεκινήσει.');
+      } else {
+        sourceFailed = true;
+        mediaMessage(sourceMode === 'local' ? 'Το τοπικό βίντεο δεν ξεκίνησε. Δοκίμασε άλλο αρχείο MP4.' :
+          'Το βίντεο δεν ξεκίνησε. Δοκίμασε ξανά ή επίλεξε τοπικό αρχείο.');
+      }
+      $('playback-status').textContent = 'Οι απαντήσεις σου διατηρούνται.';
+    });
+  }
+
+  $('lesson-title').textContent = D.title;
+  $('lesson-subtitle').textContent = D.subtitle || 'Μια μικρή βιογραφική διαδρομή';
+  $('duration').textContent = D.videoDuration + '″';
+  $('video-source-link').href = D.videoUrl;
+  video.setAttribute('aria-label', 'Βίντεο: ' + D.title);
+  buildRows(); buildBank(); render(); persist();
+
+  document.querySelectorAll('[data-phase]').forEach(function (button) {
+    button.addEventListener('click', function () { selectPhase(Number(button.dataset.phase)); });
+  });
+  $('start-screening').addEventListener('click', playFromStart);
+  video.addEventListener('playing', function () {
+    sourceFailed = false; started = true; updateStartLabel(); mediaMessage('');
+    $('playback-status').textContent = 'Παίζει η ' + state.phase + 'η προβολή. Παύση από τα χειριστήρια του βίντεο.';
+  });
+  video.addEventListener('pause', function () {
+    if (!video.ended && started) $('playback-status').textContent = 'Σε παύση. Μπορείς να συνεχίσεις από τα χειριστήρια του βίντεο.';
+  });
+  video.addEventListener('ended', function () {
+    $('playback-status').textContent = 'Ολοκληρώθηκε η ' + state.phase + 'η προβολή. ' +
+      (state.phase === 3 ? 'Πάρε όσο χρόνο χρειάζεσαι για τις προτάσεις.' : 'Διάλεξε την επόμενη προβολή όταν είστε έτοιμοι.');
+  });
+  video.addEventListener('error', mediaError);
+  video.addEventListener('loadedmetadata', function () {
+    if (Number.isFinite(video.duration)) $('duration').textContent = Math.round(video.duration) + '″';
+  });
+  window.addEventListener('offline', function () {
+    if (sourceMode === 'online' && video.readyState < 2) mediaMessage('Η σύνδεση δεν είναι διαθέσιμη. Μπορείς να επιλέξεις τοπικό βίντεο και να συνεχίσεις.');
+  });
+
+  $('choose-local').addEventListener('click', function () { $('local-video-file').click(); });
+  $('local-video-file').addEventListener('change', function () {
+    const file = this.files && this.files[0]; this.value = '';
+    if (!file) return;
+    if (file.type && !file.type.startsWith('video/') && !/\.(mp4|webm|m4v|mov|ogv|ogg)$/i.test(file.name)) {
+      mediaMessage('Επίλεξε αρχείο βίντεο, όπως MP4.'); return;
+    }
+    const previous = localObjectUrl;
+    localObjectUrl = URL.createObjectURL(file); setSource(localObjectUrl, 'local', file.name);
+    if (previous) URL.revokeObjectURL(previous);
+    say('Επιλέχθηκε τοπικό βίντεο. Η δραστηριότητα και οι απαντήσεις διατηρήθηκαν.');
+  });
+  $('use-online').addEventListener('click', function () {
+    setSource(D.videoUrl, 'online');
+    if (localObjectUrl) { URL.revokeObjectURL(localObjectUrl); localObjectUrl = null; }
+    say('Επιλέχθηκε ο σύνδεσμος του ψηφιακού βιβλίου. Οι απαντήσεις διατηρήθηκαν.');
+  });
+  $('retry-video').addEventListener('click', function () { rewind(); sourceFailed = false; mediaMessage(''); video.load();
+    $('playback-status').textContent = 'Δοκιμάζουμε ξανά τη φόρτωση. Πάτησε «Έναρξη» όταν είσαι έτοιμος.'; });
+
+  $('check-completion').addEventListener('click', function () {
+    const progress = C.progress(state, D);
+    if (progress.words < D.sentences.length) {
+      const missing = D.sentences.length - progress.words;
+      say(missing === 1 ? 'Λείπει ακόμη ένα ρήμα.' : 'Λείπουν ακόμη ' + missing + ' ρήματα.');
+      rows.get(D.sentences.find(function (s) { return !state.answers[s.id]; }).id).slot.focus();
+    } else if (state.phase === 3 && progress.ranks < D.sentences.length) {
+      const missing = D.sentences.length - progress.ranks;
+      say(missing === 1 ? 'Λείπει ακόμη μία θέση στη σειρά.' : 'Λείπουν ακόμη ' + missing + ' θέσεις στη σειρά.');
+      rows.get(D.sentences.find(function (s) { return !state.ranks[s.id]; }).id).rank.focus();
+    } else if (state.phase === 3) {
+      say('Οι ' + countWord + ' προτάσεις και οι ' + countWord + ' θέσεις έχουν συμπληρωθεί. Διαβάζουμε την περίληψή μας.');
+      $('result-title').focus({ preventScroll: true }); $('result-panel').scrollIntoView({ block: 'start' });
+    } else say('Συμπληρώθηκαν και οι ' + countWord + ' προτάσεις. Διαβάστε τις και συζητήστε τις επιλογές σας.');
+  });
+  $('back-to-sentences').addEventListener('click', function () {
+    $('sentence-list').scrollIntoView({ block: 'center' }); rows.get(D.sentences[0].id).slot.focus({ preventScroll: true });
+  });
+
+  $('reset').addEventListener('click', function () {
+    video.pause(); $('reset-dialog').returnValue = 'cancel'; $('reset-dialog').showModal();
+  });
+  $('reset-dialog').addEventListener('close', function () {
+    if (this.returnValue === 'reset') {
+      rewind(); state = C.create(D); selectedVerb = null; buildBank(); persist(); render();
+      $('playback-status').textContent = 'Το βίντεο περιμένει το δικό σου πάτημα.'; say('Ξεκινάμε μια νέα προσπάθεια.');
+      document.querySelector('[data-phase="1"]').focus();
+    } else $('reset').focus();
+  });
+  $('fullscreen').addEventListener('click', function () {
+    const promise = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    if (promise) promise.catch(function () { say('Η πλήρης οθόνη δεν είναι διαθέσιμη σε αυτή την προβολή.'); });
+  });
+  if (!document.documentElement.requestFullscreen) $('fullscreen').hidden = true;
+  document.addEventListener('fullscreenchange', function () {
+    const label = document.fullscreenElement ? 'Έξοδος πλήρους οθόνης' : 'Πλήρης οθόνη';
+    $('fullscreen').querySelector('span').textContent = label; $('fullscreen').setAttribute('aria-label', label);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && selectedVerb && !$('reset-dialog').open) {
+      const previous = selectedVerb; selectedVerb = null; render(); say('Η επιλογή ρήματος ακυρώθηκε.');
+      bankButtons.get(previous).focus({ preventScroll: true });
+    }
+  });
+  setSource(D.videoUrl, 'online');
+})();
+</script>
+</body>
+</html>
